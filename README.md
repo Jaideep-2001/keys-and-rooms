@@ -1,2 +1,25 @@
 # keys-and-rooms
 8-02-2023
+class Solution {
+    int ac=0;     
+        public boolean canVisitAllRooms(List<List<Integer>> rooms) {
+            boolean [] visited=new boolean[rooms.size()];
+            for(int i=0;i<rooms.size();i++){
+                visited[i]=false;
+            }           
+            dfs(0,visited,rooms);
+          System.out.println(ac);
+          if(ac<rooms.size()){return false;}
+          return true;
+        } 
+    void dfs(int source,boolean[] visited,List<List<Integer>> rooms){
+                visited[source]=true;
+                ac+=1;
+                for(int i:rooms.get(source)){
+                    if(!visited[i]){
+                        
+                        dfs(i,visited,rooms);
+                    }
+                }
+            }  
+}
